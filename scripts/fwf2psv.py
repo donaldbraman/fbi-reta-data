@@ -1,15 +1,20 @@
 ### This is a python 3 script that converts the FBI UCR RETA master files into pipe-separated ascii text files. 
 ### It's not clear why the files have occassional non-ascii characters, but I replace them with ascii. 
-### The aim is to create files that can be easily imported into a database like postgres or used in pytables. 
-### Nothing fancy.  This code is GPL http://www.gnu.org/licenses/gpl.html
+### The aim is to create files that can be easily imported into a database. 
+### This code is GPL http://www.gnu.org/licenses/gpl.html
 
+import zipfile
 import struct
 from os.path import expanduser
+import os.system 
 import re
 
-home_dir = '/Volumes/black beauty/Google Drive/UCR MDM'
-source_dir = home_dir + '/FBI RETA DATA/'
-output_dir = home_dir + '/recoded data/'
+home_dir = '/..'
+source_dir = home_dir + '/data/'
+output_dir = home_dir + '/output/'
+
+# unzip the files we'll be using
+os.system('unzip \*.zip')
 
 # a combination recipe for the field widths. 
 file_header_widths = (1, 2, 7, 2, 1, 2, 5, 2, 1, 7, 1, 6, 4, 2, 1, 9, 3, 3, 9, 3, 3, 9, 3, 3, 9, 9, 9, 1, 1, 1, 1, 24, 6, 30, 30, 30, 30, 5, 1, 29)
