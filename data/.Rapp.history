@@ -1,0 +1,3 @@
+load("/Users/dbraman/Google Drive/UCR Data Munge/FBI RETA DATA/field.info.RData")
+ls()
+field.names
