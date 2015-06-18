@@ -1,2 +1,2 @@
 # FBI-RETA-DATA
-Python and data for uploading FBI Return A crime data files.  
+Python scripts that prepare data for analysis.  
