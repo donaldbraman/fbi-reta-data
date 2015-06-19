@@ -5,7 +5,6 @@ FIXED LENGTH, UNPACKED DATA FORMAT
 LRECL	=  7385
 BLOCKSIZE  =  29540  (default)
 
-
 POSITION		TYPE		DESCRIPTION
 
 1			A1		1 =  Identifier code for RETURN-A master file.
@@ -192,16 +191,9 @@ Div. 9:
 36  Oregon
 46 Washington
 
-14  -  15		A2		Year.    Last two digits of the year the data reflects, e.g.,
-"85" = 1985, "90" = 1990, etc.
-
-16  -  20		A5		Sequence Number.   A five-digit number which places all
-cities in alphabetic order, regardless of state.  This field is
-blank for groups 0, 8, and 9.
-
-21  -  22		A2		Juvenile Age.  The juvenile age limit in the state in which the
-agency is located.
-
+14  -  15		A2		Year.    Last two digits of the year the data reflects, e.g., "85" = 1985, "90" = 1990, etc.
+16  -  20		A5		Sequence Number.   A five-digit number which places all cities in alphabetic order, regardless of state.  This field is blank for groups 0, 8, and 9.
+21  -  22		A2		Juvenile Age.  The juvenile age limit in the state in which the agency is located.
 
 POSITION		TYPE		DESCRIPTION
 
@@ -209,70 +201,32 @@ POSITION		TYPE		DESCRIPTION
 Y = core city of MSA
 N = not core city of MSA
 
-24  -  30		A7		Covered By.   The ORI of the agency that submits crime data
-for the agency represented by the header. For example, a 
-county will often submit a return which includes the crime data
-for a city within that county.  This field is blank	if the agency is 					not a "covered-by."
+24  -  30		A7		Covered By.   The ORI of the agency that submits crime data for the agency represented by the header. For example, a county will often submit a return which includes the crime data for a city within that county.  This field is blank	if the agency is not a "covered-by."
 
-31			A1		Covered By Group.   This is the group of the "covered-by"
-ORI above.
+31			A1		Covered By Group.   This is the group of the "covered-by" ORI above.
+32  -  37		A6		Last Update.   The date the heading or mailing list information was last updated (MMDDYY).
+38  -  41		A4		Field Office.  The four-digit  numeric code for the FBI field office whose territory covers the agency.
+42  -  43		A2		Number of Months Reported.  The highest "valued" month that was reported for the year by the submitting agency.  For example, if October was the last month submitted or is the only month submitted, "10" would be the value.  This value also can be used to stop processing once October ("10") has been processed. Again, the value does not mean that there are necessarily 10 full months reported.  It does mean that the tenth month is the last month reported on the return for the year.
 
-32  -  37		A6		Last Update.   The date the heading or mailing list 	
-information was last updated (MMDDYY).
-
-38  -  41		A4		Field Office.  The four-digit  numeric code for the FBI field
-office whose territory covers the agency.
-
-42  -  43		A2		Number of Months Reported.  The highest "valued" month
-that was reported for the year by the submitting agency.  For
-example, if October was the last month submitted or is the only					month submitted, "10" would be the value.  This value also can					be used to stop processing once October ("10") has been 					processed.
-
-Again, the value does not mean that there are necessarily 10
-full months reported.  It does mean that the tenth month is the					last month reported on the return for the year.
-
-44			A1		Agency Count.   Used to accumulate "agencies used"
-totals in various tabulations.  This field is normally "1" but
-will be "0" for the U.S. Park Police and all State Police
-agencies whose ORI code ends in "SP" (or "99" in  California).
+44			A1		Agency Count.   Used to accumulate "agencies used" totals in various tabulations.  This field is normally "1" but will be "0" for the U.S. Park Police and all State Police agencies whose ORI code ends in "SP" (or "99" in  California).
 
 Population Data Group (45 - 59) occurs 3 times.
-
-45  -  53		N9		Population Data -1  - Population.   This is the	population of 					the City in the County below.
-
-54  -  56		A3		Population Data - 1 - County.  This is the county in which the
-city is in.
-
+45  -  53		N9		Population Data -1  - Population.   This is the	population of the City in the County below.
+54  -  56		A3		Population Data - 1 - County.  This is the county in which the city is in.
 
 POSITION		TYPE		DESCRIPTION
+57  -  59		A3		Population Data - 1 - MSA.    If present, it is the code of the MSA in which it is located.
+60  -  74		15		Population Data - 2 - Group.   If city resides in two counties, this is the second largest county population.
+75  -  89		15		Population Data - 3 - Group.   If city resides in three counties, this is the third largest county population.
 
-
-57  -  59		A3		Population Data - 1 - MSA.    If present, it is the code of the
-MSA in which it is located.
-
-60  -  74		15		Population Data - 2 - Group.   If city resides in two 
-counties, this is the second largest county population.
-
-75  -  89		15		Population Data - 3 - Group.   If city resides in three
-counties, this is the third largest county population.
-
-NOTE:  Adding the three populations provides the total
-population of the city.
-
+NOTE:  Adding the three populations provides the total population of the city.
 90  -  98		N9		Population 1  - Last Census.
 99  - 107		N9		Population 2  - Last Census
 108- 116		N9		Population 3  - Last Census
 
-These are the populations taken from the previous census.
-The fields correspond to the meaning of the previous three
-Population Data Groups.
+These are the populations taken from the previous census. The fields correspond to the meaning of the previous three Population Data Groups.
 
-117			A1		Population Source.   No documentation exists that reflects
-the year to year code changes.   This was the source for the
-current population.  This can be from certain commercial
-publications, from a special census or extra population 
-based on the data from prior years or from the census. If
-unused, it should be blank.  The code values are 1-9, but
-meanings of the codes are not available.
+117			A1		Population Source.   No documentation exists that reflects the year to year code changes.   This was the source for the current population.  This can be from certain commercial publications, from a special census or extra populationbased on the data from prior years or from the census. If unused, it should be blank.  The code values are 1-9, but meanings of the codes are not available.
 
 118			A1		Follow-Up Indication.   Periodically all agencies submitting 					RETURN-A's are checked to see if they have submitted a 					return for the preceding months.  If not they are sent a "Follow-					Up" return.  This indication is used to show if this particular 					agency should be sent a "Follow-Up".
 
@@ -286,61 +240,47 @@ geographic area.  Special Mailing Group agencies are excluded
 
 POSITION		TYPE		DESCRIPTION
 
-119			A1		Special Mailing Group. (continued) from this arrangement and 					are handled separately.  The field contains:
+119			A1		Special Mailing Group. (continued) from this arrangement andare handled separately.  The field contains:
 
 0  =  If not a special mailing group agency.
 1  =  If the return is to be sent to another agency.
 2  =  Small city (groups 5 - 7) to be sent a large city (groups 1 -
 4) form.
 7  =  If the agency is a "Non-Contributor", it is not sent forms.
-9  =  If the agency is a Contributor but not on the mailing list,
-they are not sent forms.
+9  =  If the agency is a Contributor but not on the mailing list, they are not sent forms.
 
-120			A1		Special Mailing Address.   This indication is used when the 
-first line of the mailing address is other than "Chief of Police"
-or "Sheriff".
+120			A1		Special Mailing Address.   This indication is used when the first line of the mailing address is other than "Chief of Police" or "Sheriff".
 
 Y  =  Special mailing address.
 N  =  Not a special mailing address.
 
 121 - 144		A24		Agency Name.
-
 145 - 150		A6		Agency State Name.
-
 151 - 180		A30		First Line of Mailing Address.
-
 181 - 210		A30		Second Line of Mailing Address.
-
 211 - 240		A30		Third Line of Mailing Address.
-
 241 - 270		A30		Fourth Line of Mailing Address.
-
 271 - 275		A5		Zip Code.
-
-276			A1		Old Population Group.  The population group the agency
-was in the previous year.
-
+276			    A1		Old Population Group.  The population group the agency was in the previous year.
 277 - 305		A29		Unused  - Blanks.
-
 
 The area represented by positions 306 - 895 occurs once for each month for which a return has been received.  If there are any missing months, the corresponding area will be zeros and blanks, depending on field type.  For example, a return for October will always be in the tenth position, July will always be in 
 
 
 POSITION		TYPE		DESCRIPTION
 
-277 - 305		A29		Unused  - Blanks. (continued)  the seventh, etc.  The number 					of months received is located in Number of Months Reported in 					positions 42 - 43.
+277 - 305		A29		Unused  - Blanks. (continued)  the seventh, etc.  The number of months received is located in Number of Months Reported in positions 42 - 43.
 
 Month data in 306 - 895 occurs 12 times.
 
 306 - 895		590		01 - January. 
 
 Month
-306 - 307		A2		Month Included In.   Used only if an agency does not submit a 					return, say for January, but indicates on the February return that 					it includes the January data. In this case, the January area would 					have "02" in this field with the remainder of the month data 					initialized to field defaults of  zeros and  blanks, if applicable.
+306 - 307		A2		Month Included In.   Used only if an agency does not submit a return, say for January, but indicates on the February return that it includes the January data. In this case, the January area would have "02" in this field with the remainder of the month data initialized to field defaults of  zeros and  blanks, if applicable.
 
-308 - 313		A6		Date of Last Update.   The date this month area was 
-updated, in the form of MMDDYY.
-
+308 - 313		A6		Date of Last Update.   The date this month area was updated, in the form of MMDDYY.
 314			A1		Card 0 Type.   The type of data in column 3 of the 
+
 RETURN-A.  The types are:
 
 0 = Not updated.
@@ -349,231 +289,78 @@ RETURN-A.  The types are:
 5 = Normal Return.
 
 315			A1		Card 1 Type.   Same codes as Card 0, except it is for column 4.
-
 316			A1		Card 2 Type.   Same codes as Card 0, except it is for column 5.
-
 317			A1		Card 3 Type.   Same codes as Card 0 , except it is for column 6.
-
-318			A1		Card 4 Type.   Same codes as Card 0, except it is for Police
-Assault information on the RETURN-A.  If value is "8", the
-information is included but is unusable.
-
-319			A1		Card 0 P/T.   Shows whether the data for column 3 includes the 					"breakdown" offenses (P), or shows only the totals (T).  Field is 					blank if no return has been received.
-
-
-
-POSITION		TYPE		DESCRIPTION
-
-
+318			A1		Card 4 Type.   Same codes as Card 0, except it is for Police Assault information on the RETURN-A.  If value is "8", the information is included but is unusable.
+319			A1		Card 0 P/T.   Shows whether the data for column 3 includes the "breakdown" offenses (P), or shows only the totals (T).  Field is blank if no return has been received.
 320			A1		Card 1 P/T.   As noted above but for column 4.
-
 321			A1		Card 2 P/T.   As noted above but for column 5.
-
 322			A1		Card 3 P/T.   As noted above but for column 6.
 
 CARD  0
-
-323 - 462		N140		Card 0.   The next 28 fields contain the "number of 
-unfounded offenses" information entered from column 3
-(Card 0).  All fields will be zeros for records prior to 1983.
-
+323 - 462		N140		Card 0.   The next 28 fields contain the "number of unfounded offenses" information entered from column 3 (Card 0).  All fields will be zeros for records prior to 1983.
 323 - 327		N5		1 - Murder
-
 328 - 332		N5		2 - Manslaughter
-
 333 - 337		N5		3 - Rape Total
-
 338 - 342		N5		4 - Rape by Force
-
 343 - 347		N5		5 - Attempted Rape
-
 348 - 352		N5		6 - Robbery Total
-
 353 - 357		N5		7 - Robbery With A Gun
-
-358 - 362		N5		8 - Robbery With a Knife (only collected 1974 and later, 						                               will be zero for any prior years)	
-363 - 367		N5		9 - Robbery - Other Weapon (only collected 1974 and                                                                                                        later, will be zero for any prior years)
-
+358 - 362		N5		8 - Robbery With a Knife (only collected 1974 and later, will bezero for any prior years)	
+363 - 367		N5		9 - Robbery - Other Weapon (only collected 1974 and later, will be zero for any prior years)
 368 - 372		N5		10-Strong-Arm Robbery
-
 373 - 377		N5		11-Assault Total
-
 378 - 382		N5		12-Assault With a Gun
-
 383 - 387		N5		13-Assault With a Knife
 
 
 POSITION		TYPE		DESCRIPTION
-
 388 - 392		N5		14-Assault - Other Weapon
-
 393 - 397		N5		15-Assault With Hands, Feet, etc.
-
 398 - 402		N5		16-Simple Assault
-
 403 - 407		N5		17-Burglary Total
-
 408 - 412		N5		18-Burglary - Forcible Entry
-
 413 - 417		N5		19-Burglary - No Forcible Entry
-
 418 - 422		N5		20-Attempted Burglary
-
 423 - 427		N5		21-Larceny Total
-
 428 - 432		N5		22-Motor Vehicle Theft Total
-
 433 - 437		N5		23-Auto Theft
-
 438 - 442		N5		24-Truck,  Bus Theft
-
 443 - 447		N5		25-Other Vehicle Theft
-
 448 - 452		N5		26-Grand Total of All Fields
-
 453 - 457		N5		27-Larceny Under $50.00
-
 458 - 462		N5		28-UNUSED
 
 CARD 1
-
-463 - 602		N140		Card 1.   The next 28 fields contain the "Number of Actual
-Offenses" information entered from column 4 (Card 1).
-Field 27 will contain data only if the tape is for a year prior
-to 1974
-
+463 - 602		N140		Card 1.   The next 28 fields contain the "Number of Actual Offenses" information entered from column 4 (Card 1). Field 27 will contain data only if the tape is for a year prior to 1974
 Same field definitions as Card 0
 
-
-
-
- 
-RETURN - A  UNPACKED MASTER   ---   1960  -  Current
-
-POSITION		TYPE		DESCRIPTION
-
 CARD 2
-
-603 - 742		N140		Card 2.   The next 28 fields contain the "Total Offenses
-Cleared by Arrest" information entered from column 5
-(Card 2). Field 27 will contain data only if the tape is for a
-year prior to 1974.
-
+603 - 742		N140		Card 2.   The next 28 fields contain the "Total Offenses Cleared by Arrest" information entered from column 5 (Card 2). Field 27 will contain data only if the tape is for a year prior to 1974.
 Same field definitions as Card 0.
 
 CARD 3
-
-743 - 882		N140		Card 3.   The next 28 fields contain the "Number of 
-Clearances Under 18" information entered from column 6
-(Card 3).  Field 27 will contain data only if the tape is for a
-year prior to 1974.
-
+743 - 882		N140		Card 3.   The next 28 fields contain the "Number of Clearances Under 18" information entered from column 6 (Card 3).  Field 27 will contain data only if the tape is for a year prior to 1974.
 Same field definitions as Card 0.
 
 CARD 4
-
-883 - 885		N3		Number of Officers Killed by Felonious Acts.   
-Information entered from Card 4, Police Assault data.
-
-886-888		N3		Number of Officers Killed by Accidental or Negligent
-Acts.   Information entered from Card 4, Police Assault data.
-
-889 - 895		N7		Number of Officers Assaulted.    Information entered 	
-from Card 4, Police Assault data.
+883 - 885		N3		Number of Officers Killed by Felonious Acts.   Information entered from Card 4, Police Assault data.
+886 - 888		N3		Number of Officers Killed by Accidental or Negligent Acts.   Information entered from Card 4, Police Assault data.
+889 - 895		N7		Number of Officers Assaulted.    Information entered from Card 4, Police Assault data.
 
 E N D   O F   M O N T H
 
-
-
-
-
-
-
-
-
-
--12-
-RETURN - A  UNPACKED MASTER   ---   1960  -  Current
-
-
 POSITION		TYPE		DESCRIPTION
-
 896 -1485		590		02 - February.   Same format as January
-
 1486-2075		590		03 - March.   	  Same format as January
-
 2076-2665		590		04 - April.  	  Same format as January
-
 2666-3255		590		05 - May.   	  Same format as January.
-
 3256-3845		590		06 - June.   	  Same format as January.
-
 3846-4435		590		07 - July.   	  Same format as January.
-
 4436-5025		590		08 - August.  	  Same format as January.
-
 5026-5615		590		09 - September. Same format as January.
-
 5616-6205		590		10 - October.      Same format as January.
-
 6206-6795		590		11 - November.   Same format as January.
-
 6796-7385		590		12 - December.   Same format as January.
 
-
-
 E N D   O F    R E C O R D
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
--13-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
