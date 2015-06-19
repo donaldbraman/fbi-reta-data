@@ -9,14 +9,13 @@ BLOCKSIZE  =  29540  (default)
 POSITION		TYPE		DESCRIPTION
 
 1			A1		1 =  Identifier code for RETURN-A master file.
-
-2  -  3			A2		Numeric State Code.   Range is 01-62.  Data records are in
-order by ORI code within numeric state code. The values 					are:
+2  -  3		A2		Numeric State Code.   Range is 01-62.  Data records are in
+order by ORI code within numeric state code. The values are:
 50  = AK -Alaska
 01  = AL  -Alabama
 03  = AR - Arkansas
-54  = AS - American Samoa
-02  = AZ - Arizona
+54  = AS - American Samoa 
+02  = AZ - Arizona 
 04  = CA - California
 05  = CO - Colorado
 06  = CT - Connecticut
@@ -42,13 +41,6 @@ order by ORI code within numeric state code. The values 					are:
 24  =  MO - Missouri
 23  =  MS -  Mississippi
 25  =  MT -  Montana
-
-
-
-POSITION		TYPE		DESCRIPTION
-
-2  -  3			A2		Numeric State Code.  (continued)
-
 26  =  NB -  Nebraska
 32  =  NC -  North Carolina
 33  =  ND  - North Dakota
@@ -82,18 +74,11 @@ POSITION		TYPE		DESCRIPTION
 counties.  Sub-group (position 12) is blank when not used.
 All populations are inclusive.  Values are:
 
-0  = Possessions (Puerto Rico, Guam, Canal Zone, Virgin
-Islands, and American Samoa)
+0  = Possessions (Puerto Rico, Guam, Canal Zone, Virgin Islands, and American Samoa)
 1  = All cities 250,000 or over:
 1A= Cities 1,000,000 or over
 1B= Cities from 500,000 thru 999,999
 1C= Cities from 250,000 thru 499,999
-
-
-POSITION		TYPE		DESCRIPTION
-
-11 - 12		A2			Group. (continued)
-
 2  =  Cities from 100,000 thru 249,000
 3  =  Cities from 50,000 thru 99,000
 4  =  Cities from 25,000 thru 49,999
@@ -113,10 +98,7 @@ POSITION		TYPE		DESCRIPTION
 9D= MSA counties under 10,000
 9E= MSA State Police
 
-13			A1		Division.  Geographic division in which the state is located
-(from 1 thru 9).  Possessions are coded "0".  The states
-comprising each division are as follows.  The divisions are
-listed within region:
+13			A1		Division.  Geographic division in which the state is located (from 1 thru 9).  Possessions are coded "0".  The states comprising each division are as follows.  The divisions are listed within region:
 
 0  =  Possessions
 Div. 0:	54  American Samoa
@@ -128,36 +110,33 @@ Div. 0:	54  American Samoa
 REGION I  - NORTHEAST
 
 1  =  New  England
-       	Div. 1:	06  Connecticut
+Div. 1:
+06  Connecticut
 18  Maine
 20  Massachusetts
 28  New Hampshire		
 38  Rhode Island
-
-
-
-POSITION		TYPE		DESCRIPTION
-
-13			A1		Division. (continued)					
-1  =  New  England (continued)
 44  Vermont
 
 2  = Middle  Atlantic
-Div. 2:	29  New Jersey
+Div. 2:
+29  New Jersey
 31  New York		
 37  Pennsylvania
 
 REGION II  -  NORTH CENTRAL
 
 3  =  East North Central
-Div. 3:	12  Illinois
+Div. 3:
+12  Illinois
 13  Indiana
 21  Michigan
 34   Ohio
 48  Wisconsin
 
 4  =  West North Central
-    	Div. 4:	14  Iowa
+Div. 4:	
+14  Iowa
 15  Kansas
 22  Minnesota
 24  Missouri
@@ -168,7 +147,8 @@ Div. 3:	12  Illinois
 REGION III   -   SOUTH
 
 5  =  South Atlantic
-Div. 5:	07  Delaware
+Div. 5:	
+07  Delaware
 08  District of Columbia
 09  Florida
 10  Georgia
@@ -177,13 +157,6 @@ Div. 5:	07  Delaware
 39  South Carolina
 45   Virginia
 47  West Virginia
-
-
-
-
-POSITION		TYPE		DESCRIPTION
-
-13			A1		Division. (continued)	
 6  =  East South Central
 Div. 6:	01  Alabama
 16  Kentucky		
@@ -191,7 +164,8 @@ Div. 6:	01  Alabama
 41  Tennessee
 
 7  =  West South Central
-Div. 7:	03  Arkansas
+Div. 7:	
+03  Arkansas
 17  Louisiana
 35  Oklahoma
 42  Texas
@@ -199,7 +173,8 @@ Div. 7:	03  Arkansas
 REGION  IV  -  WEST
 
 8  =  Mountain
-Div. 8:	02  Arizona
+Div. 8:	
+02  Arizona
 05  Colorado
 11  Idaho
 25  Montana
@@ -208,8 +183,10 @@ Div. 8:	02  Arizona
 43  Utah		
 49  Wyoming
 
-           9  =  Pacific
-Div. 9:	50  Alaska
+
+9  =  Pacific
+Div. 9:	
+50  Alaska
 04  California
 51  Hawaii			
 36  Oregon
