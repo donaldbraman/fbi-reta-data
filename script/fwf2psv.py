@@ -11,7 +11,7 @@ import re
 
 home_dir = '/..'
 source_dir = home_dir + '/masterfiles/'
-output_dir = home_dir + '/recoded_data/'
+output_dir = home_dir + '/recoded-data/'
 
 # unzip the files we'll be using
 os.system('unzip \*.zip')
