@@ -1,4 +1,4 @@
 MAINTAINER Donald Braman
 
-FROM python:3
+FROM ubuntu
 
