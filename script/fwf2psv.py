@@ -8,6 +8,8 @@ import struct
 from os.path import expanduser
 import os.system 
 import re
+import zipfile
+import os.path
 
 home_dir = '/..'
 source_dir = home_dir + '/masterfiles/'
@@ -96,5 +98,13 @@ for year_num in range(1960, 2011):                         # one for each year t
       line_in = i.readline()
   i.close()                                                # close the source file
   o.close()                                                # close the output file
+  
+  z=output_dir + file_out_name +'.zip'
+  x='./'+ file_out_name
+  z=zipfile.ZipFile(z,'w',zipfile.ZIP_DEFLATED)
+  z.write(output_dir + file_out_name ,x)
+  z.close()
+  os.remove(output_dir+file_out_name)
+  
 print('All done!')
 
