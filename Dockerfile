@@ -1,6 +1,8 @@
-FROM python:3-slim
+FROM ubuntu:latest
 
-RUN apt-get install -qy python3-pip
+RUN apt-get update
+RUN apt-get install -y python3-pip
 RUN pip-3.3 install zipfile
+
 
 MAINTAINER Donald Braman
