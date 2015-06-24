@@ -18,7 +18,7 @@ output_dir = home_dir + '/recoded-data/'
 # unzip the files we'll be using
 os.system('unzip \*.zip')
 
-# a combination recipe for the field widths. 
+# a combination recipe for the field widths. See the readme.md for details on each field. 
 file_header_widths = (1, 2, 7, 2, 1, 2, 5, 2, 1, 7, 1, 6, 4, 2, 1, 9, 3, 3, 9, 3, 3, 9, 3, 3, 9, 9, 9, 1, 1, 1, 1, 24, 6, 30, 30, 30, 30, 5, 1, 29)
 monthly_header_widths = (2, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1) 
 cards_0123_widths = (5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5) 
@@ -73,11 +73,11 @@ def clean_line(line_in):  # convert input to bytes and results back to strings
 for year_num in range(1960, 2011):                         # one for each year that we have data
   file_in_name = "RETA" + str(year_num) + ".txt"           # old prefix + year + old suffix
   file_out_name = "reta_" + str(year_num) + "_data.psv"    # new prefix + year + new suffix
-  i = open(source_dir + file_in_name, encoding="latin-1")  # for some reason the files are encode as latin-1 rather than ascii
+  i = open(source_dir + file_in_name, encoding="latin-1")  # for some reason the RETA files are encode as latin-1 rather than ascii
   o = open(output_dir + file_out_name, "w")                # open the output file
   print('processing' , file_in_name)                       # just to keep track of progress
   line_in = i.readline()                                   # as johnny cash would say, "one piece at at time!" 
-  line_number = 0                                          # we really only need line number for debugging
+  line_number = 0                                          # line number for debugging
   while line_in: 
     line_number = line_number + 1                           # increase the line number
     if len(line_in) > 7385:                                 # if the line is long enough
@@ -99,7 +99,7 @@ for year_num in range(1960, 2011):                         # one for each year t
   i.close()                                                # close the source file
   o.close()                                                # close the output file
   
-  z=output_dir + file_out_name +'.zip'
+  z=output_dir + file_out_name +'.zip'                     # generate zipped version for github
   x='./'+ file_out_name
   z=zipfile.ZipFile(z,'w',zipfile.ZIP_DEFLATED)
   z.write(output_dir + file_out_name ,x)
