@@ -6,7 +6,7 @@
 import zipfile
 import struct
 from os.path import expanduser
-import os.system 
+import os 
 import re
 import zipfile
 import os.path
