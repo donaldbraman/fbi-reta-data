@@ -11,12 +11,12 @@ import re
 import zipfile
 import os.path
 
-home_dir = '/..'
+home_dir = '..'
 source_dir = home_dir + '/masterfiles/'
 output_dir = home_dir + '/recoded-data/'
 
 # unzip the files we'll be using
-os.system('unzip \*.zip')
+# 
 
 # a combination recipe for the field widths. See the readme.md for details on each field. 
 file_header_widths = (1, 2, 7, 2, 1, 2, 5, 2, 1, 7, 1, 6, 4, 2, 1, 9, 3, 3, 9, 3, 3, 9, 3, 3, 9, 9, 9, 1, 1, 1, 1, 24, 6, 30, 30, 30, 30, 5, 1, 29)
