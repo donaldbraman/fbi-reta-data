@@ -1,4 +1,5 @@
-{{"name": "name", "type": "string", "mode": "required"},
+{
+  {"name": "name", "type": "string", "mode": "required"},
   {"name": "gender", "type": "string", "mode": "nullable"},
   {"name": "count", "type": "integer", "mode": "required"}
 }
