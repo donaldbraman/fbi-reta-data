@@ -1,4 +1,4 @@
-This folder contains both FBI Return A master data and scripts for pushing it to google big query. 
+This repo contains both FBI Return A master data and scripts for pushing it to google big query. 
 
 # FBI-RETA-DATA
 This contains the RETURN-A master files of the FBI's Uniform Crime Reporting dataset. 
