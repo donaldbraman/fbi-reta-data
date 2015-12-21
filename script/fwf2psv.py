@@ -1,7 +1,6 @@
 ### This is a python 3 script that converts the FBI UCR RETA master files into pipe-separated ascii text files. 
 ### It's not clear why the files have occassional non-ascii characters, but I replace them with ascii. 
 ### The aim is to create files that can be easily imported into a database. 
-### This code is GPL http://www.gnu.org/licenses/gpl.html
 
 import zipfile
 import struct
